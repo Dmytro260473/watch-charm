@@ -1,3 +1,9 @@
+.container {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
 .header {
   background: #fff;
   border-bottom: 1px solid #eee;
@@ -8,20 +14,70 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
+  font-family: "Gilroy", sans-serif;
   display: flex;
   align-items: center;
-  font-weight: bold;
+  font-weight: 500;
   text-decoration: none;
-  color: #1c1c1c;
-  font-size: 20px;
+  color: #0c0c0c;
+  font-size: 16px;
   gap: 8px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
-.nav {
+.logo svg {
+  fill: #4d5ae5;
+}
+
+.header-nav {
   display: none;
+}
+
+.nav-list {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1c1c1c;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.3s;
+}
+
+.link:hover,
+.link:focus,
+.link.current {
+  color: #4d5ae5;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #4d5ae5;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.link:hover::after,
+.link:focus::after,
+.link.current::after {
+  opacity: 1;
 }
 
 .burger-btn {
@@ -31,60 +87,64 @@
   cursor: pointer;
 }
 
-.social-icons {
-  display: none;
+.burger-icon {
+  fill: #1c1c1c;
 }
 
-.mobile-menu {
+.social-icons {
   display: none;
-  background: #fff;
-  padding: 20px;
-  position: absolute;
-  top: 64px;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons li a {
+  display: inline-flex;
+}
+
+.social-icons svg {
+  width: 24px;
+  height: 24px;
+  fill: #1c1c1c;
+  transition: fill 0.3s;
+}
+
+.social-icons a:hover svg {
+  fill: #4d5ae5;
 }
 
 /* Tablet */
 @media screen and (min-width: 768px) {
   .container {
+    max-width: 768px;
     padding: 0 24px;
   }
 
   .social-icons {
     display: flex;
-    gap: 16px;
   }
 }
 
 /* Desktop */
 @media screen and (min-width: 1158px) {
-  .burger-btn,
-  .mobile-menu {
-    display: none !important;
+  .container {
+    max-width: 1158px;
+    padding: 0 15px;
   }
 
-  .nav {
+  .burger-btn {
+    display: none;
+  }
+
+  .header-nav {
     display: block;
+    margin-left: 40px;
   }
 
   .nav-list {
     display: flex;
     gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-list a {
-    text-decoration: none;
-    font-weight: 500;
-    color: #1c1c1c;
-  }
-
-  .nav-list a:hover {
-    color: #4d5ae5;
   }
 
   .social-icons {
